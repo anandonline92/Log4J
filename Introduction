@@ -1,0 +1,6 @@
+Introduction
+
+A zero-day vulnerability involving remote code execution in Log4j 2, given the descriptor "Log4Shell" (CVE-2021-44228), was found and reported to Apache by Alibaba on November 24, 2021, and published in a tweet on December 9, 2021.
+The Apache Software Foundation assigned the maximum CVSS severity rating of 10 to Log4Shell, as millions of servers could be potentially vulnerable to the exploit.[44] The vulnerability was characterized by cybersecurity firm Tenable as "the single biggest, most critical vulnerability of the last decade. 
+The vulnerability takes advantage of Log4j's allowing requests to arbitrary LDAP and JNDI servers, allowing attackers to execute arbitrary Java code on a server or other computer, or leak sensitive information.
+
