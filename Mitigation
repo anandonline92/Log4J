@@ -1,0 +1,16 @@
+Mitigation
+Temporary Mitigation:
+
+CVE-2021-44228 and CVE-2021-45046
+Per the Apache post, remove the JndiLookup class from the from the log4j-core jar file.
+
+CVE-2021-45105 
+Within the PatternLayout of the logging configuration, replace Context Lookups similar to ${ctx:loginId} or $${ctx:loginId} with Thread Context Map patterns (%X, %mdc, or %MDC).
+
+Permanent Mitigation:
+Log4j versions 2.3.1 (Java 6 clients), 2.12.3 (Java 7 clients) and 2.17.0 (Java 8 clients) include vulnerability mitigations for CVE-2021-44228(	Exec Code), CVE-2021-45046(Exec Code +Info), and CVE-2021-45105(DDOS). These are the upgrades that Apache recommends for installation.
+
+Java 8 Clients
+On December 10, 2021, Apache reported that the CVE-2021-44228 vulnerability had been resolved within Log4j 2 version 2.15.0. The 2.15.0 update essentially disabled the message lookup substitution (log4j2.formatMsgNoLookups) functionality – although JNDI was still enabled by default (allowing LDAP lookups to the localhost).
+On December 13, 2021, Apache released Log 4j version 2.16.0 for Java 8 clients based upon the fact that Log4j version 2.15.0 did not fully mitigate the CVE-2021-44228 vulnerability with certain non-default configurations, potentially resulting in either remote code execution (RCE) or a denial of service attack. (CVE-2021-45046). Of note, this update disables JNDI functionality and message lookup patterns by default.
+As of December 18, 2021, Apache released Log4j version 2.17.0 for Java 8 clients. This update resolved an issue with specific non-default configurations that could result in a denial of service attack (CVE-2021-45105).
